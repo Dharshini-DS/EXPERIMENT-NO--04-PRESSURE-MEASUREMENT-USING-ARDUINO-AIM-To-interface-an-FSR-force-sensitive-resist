@@ -1,4 +1,4 @@
-# EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resistor
+# EXPERIMENT-NO--03-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resistor
 
 
 ## AIM: 
@@ -76,26 +76,50 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 
 
 ### PROGRAM 
- *your roll no 
- * your name 
- * department and year 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 
-![image](https://user-images.githubusercontent.com/36288975/188804653-a3154e8e-2655-46f2-9dcd-f425dd1ba109.png)
+roll no : 212221230022
+
+name : Dharshini DS
+
+department and year : AIDS 3rd year
+```
+int fsr;
+int LED=7;
+void setup()
+{
+ pinMode(LED, OUTPUT);
+ Serial.begin(9600);
+}
+
+void loop()
+{
+ fsr=analogRead(A0);
+ Serial.print("raw value=");
+ Serial.println(fsr);
+ delay(1000);
+ int m;
+ m=map(fsr,0,159,0,10);
+ Serial.print("mapped value=");
+ Serial.println(m);
+ delay(1000);
+ 
+ if(m>5)
+ {
+   digitalWrite(LED,HIGH);
+   delay(500);
+   digitalWrite(LED,LOW);
+   delay(500);
+ }
+   
+}
+```
+
+
+![533ex3](https://github.com/Dharshini-DS/EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resist/assets/93427345/d8529bbb-aad6-4231-b612-23741daf6f80)
+
+
+
+![533ex3i](https://github.com/Dharshini-DS/EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resist/assets/93427345/93df11c9-350f-4cca-a509-826bb48ac667)
 
 
 ### TABLE -02 standard deviation table 
@@ -116,17 +140,8 @@ EX:           μ = (1+3+4+7+8) / 5 = 4.6
 σ = √(12.96 + 2.56 + 0.36 + 5.76 + 11.56)/5 = 2.577
 
 
+![533ex3j](https://github.com/Dharshini-DS/EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resist/assets/93427345/9511e6d7-91a0-44f2-8a1b-e1c50435d5ec)
 
 
-
-
-
-
-
-
-
-
-
-
-
-### RESULTS : Arduino uno is interfaced with FSR and output values are indicated on a graph.
+### RESULTS :
+Arduino uno is interfaced with FSR and output values are indicated on a graph.
